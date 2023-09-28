@@ -6,7 +6,13 @@ const operations = [
     fields: {},
   },
   {
-    name: "Create User",
+    name: "Get User By ID",
+    endpoint: "/api/users",
+    method: "GET",
+    fields: { _id: "input" },
+  },
+  {
+    name: "Update User",
     endpoint: "/api/users",
     method: "POST",
     fields: { username: "input", password: "input" },
@@ -28,6 +34,12 @@ const operations = [
     endpoint: "/api/users",
     method: "PATCH",
     fields: { update: "json" },
+  },
+  {
+    name: "Update User By ID",
+    endpoint: "/api/users",
+    method: "PATCH",
+    fields: { _id: "input", update: "json" },
   },
   {
     name: "Get Users (empty for all)",
@@ -86,7 +98,7 @@ async function request(method: HttpMethod, endpoint: string, params?: unknown) {
 
 function getHtmlOperations() {
   return operations.map((operation) => {
-    return `<li class="operation">
+    return `<div class="operation">
       <h3>${operation.name}</h3>
       <form class="operation-form">
         <input type="hidden" name="$endpoint" value="${operation.endpoint}" />
@@ -102,7 +114,7 @@ function getHtmlOperations() {
           .join("")}
         <button type="submit">Submit</button>
       </form>
-    </li>`;
+    </div>`;
   });
 }
 

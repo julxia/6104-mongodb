@@ -23,6 +23,12 @@ export default class PostConcept {
     return posts;
   }
 
+  async getById(_id: ObjectId) {
+    // Hint: check out this.users.readOne
+    const user = await this.posts.readOne({ _id });
+    return user;
+  }
+
   async delete(_id: ObjectId) {
     await this.posts.deleteOne({ _id });
     return { msg: "Post deleted successfully!" };

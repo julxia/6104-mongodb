@@ -19,9 +19,32 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  letter-spacing: 2px;
+  color: #6e926f;
+}
+
+button {
+  border-radius: 8px;
+  color: white;
+  background-color: #6e926f;
+  letter-spacing: 1px;
+}
+
 main {
   display: flex;
   gap: 1em;
+}
+
+label{
+  margin-right: 0.5em;
+}
+
+.field {
+  padding: 0.2em;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
 }
 
 #operations, #response {
